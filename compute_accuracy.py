@@ -1,14 +1,13 @@
 import argparse
 import torch
 from utils import load_samples,predict
-from robustbench import load_model
 
 def parse_args_and_config():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--data', help='imagenet or cifar10', type=str, required=True)
     parser.add_argument('--model', help='model name', type=str, required=True)
-    parser.add_argument('--input', help='input path', type=str, required=True)
+    parser.add_argument('--input', help='input directory', type=str, required=True)
     parser.add_argument('--start_idx', help='start idx', type=int, default=0)
     parser.add_argument('--end_idx', help='end idx, id+1', type=int, default=1000)
     parser.add_argument('--batch_size', help='batch size depends on memory', type=int, default=None)
@@ -24,15 +23,17 @@ def main() -> None:
 
     # Load Model
     if args.data == 'cifar10':
+        from robustbench import load_model
         model = load_model(args.model, dataset="cifar10", threat_model="Linf")
     elif args.data == 'imagenet':
         if args.model == 'ViT':
             import timm
-            model = timm.create_model('vit_base_patch16_224', pretrained=True, num_classes=1000)
+            model = timm.create_model('vit_base_patch16_224', pretrained=True, num_classes=1000).eval()
         elif args.model == 'VGG':
             import timm
-            model = timm.create_model('vgg19_bn.tv_in1k', pretrained=True, num_classes=1000)
+            model = timm.create_model('vgg19_bn.tv_in1k', pretrained=True, num_classes=1000).eval()
         else:
+            from robustbench import load_model
             model = load_model(args.model, dataset="imagenet", threat_model="Linf")
     else:
         raise ValueError("Unsupported dataset")
