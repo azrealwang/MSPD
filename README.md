@@ -1,6 +1,11 @@
-# Minimal Cascade Gradient Smoothing for Low-Latency Transferable Preemptive Adversarial Defense
+# Minimal Cascade Gradient Smoothing for Fast Transferable Preemptive Adversarial Defense
 
-This is a demo of our proposed preemptive defense, **MSPD**, and adaptive reversion attack, **Preemptive Reversion**, on the CIFAR-10 dataset.
+[PDF](https://arxiv.org/pdf/2407.15524)
+
+Adversarial attacks persist as a major challenge in deep learning. While training- and test-time defenses are well-studied, they often reduce clean accuracy, incur high cost, or fail under adaptive threats. In contrast, preemptive defenses, which perturb media before release, offer a practical alternative but remain slow, model-coupled, and brittle.
+* We propose the **Minimal Sufficient Preemptive Defense (MSPD)**, a fast, transferable framework that defends against future attacks without access to the target model or gradients.
+* MSPD is driven by **Minimal Cascade Gradient Smoothing (MCGS)**, a two-epoch optimization paradigm executed on a surrogate backbone. This defines a minimal yet effective regime for robust generalization across unseen models and attacks.
+* To evaluate adaptive robustness, we introduce **Preemptive Reversion**, the first white-box diagnostic attack that cancels preemptive perturbations under full gradient access.
 
 ****
 ## Contents
@@ -76,3 +81,22 @@ Run preemptive reversion
 ```
 python MSPD.py --reversion --eps 8 --N 20 --data cifar10 --backbone Gowal2021Improving_R18_ddpm_100m --input imgs/mspd --output imgs/R_mspd
 ```
+
+## User Study
+
+We provide the full user study questionnaire in `UserStudy.png`.
+
+## Citation
+```
+@article{wang2026minimal,
+  title={Minimal Cascade Gradient Smoothing for Fast Transferable Preemptive Adversarial Defense},
+  author={Wang, Hanrui and Chang, Ching-Chun and Lu, Chun-Shien and Kao, Ching-Chia, Shuo Wang, and Echizen, Isao},
+  journal={arXiv preprint arXiv:2407.15524},
+  year={2026}
+}
+```
+
+## Contact
+If you have any questions about our work, please do not hesitate to contact us by email.
+
+Hanrui Wang: hanrui_wang@nii.ac.jp
