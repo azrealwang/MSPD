@@ -7,6 +7,8 @@ Adversarial attacks persist as a major challenge in deep learning. While trainin
 * MSPD is driven by **Minimal Cascade Gradient Smoothing (MCGS)**, a two-epoch optimization paradigm executed on a surrogate backbone. This defines a minimal yet effective regime for robust generalization across unseen models and attacks.
 * To evaluate adaptive robustness, we introduce **Preemptive Reversion**, the first white-box diagnostic attack that cancels preemptive perturbations under full gradient access.
 
+<img src="figures/defense_families.jpg" alt="pipeline" style="width:350px;"/>
+
 ****
 ## Contents
 * [Main Requirements](#Main-Requirements)
