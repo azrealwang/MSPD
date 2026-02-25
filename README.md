@@ -92,7 +92,7 @@ We provide the full user study questionnaire in `UserStudy.png`.
 ```
 @article{wang2026minimal,
   title={Minimal Cascade Gradient Smoothing for Fast Transferable Preemptive Adversarial Defense},
-  author={Wang, Hanrui and Chang, Ching-Chun and Lu, Chun-Shien and Kao, Ching-Chia, Shuo Wang, and Echizen, Isao},
+  author={Wang, Hanrui and Chang, Ching-Chun and Lu, Chun-Shien and Kao, Ching-Chia and Wang, Shuo and Echizen, Isao},
   journal={arXiv preprint arXiv:2407.15524},
   year={2026}
 }
